@@ -1,8 +1,7 @@
-fr = open('.pio/build/esp32doit-devkit-v1/VERSION.html','r')
-versionFW=fr.read()
-fr.close()
+import datetime
 
-versionFW = float(versionFW)+ .01
+x = datetime.datetime.now()
+versionFW = f"{x.strftime('%Y')+x.strftime('%m')+x.strftime('%d')+x.strftime('%H')+x.strftime('%M')+x.strftime('%S')}"
 
 fw = open('.pio/build/esp32doit-devkit-v1/VERSION.html','w')
 print(versionFW, file=fw)

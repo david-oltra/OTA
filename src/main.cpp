@@ -74,9 +74,9 @@ void checkVersionFW()
     esp_http_client_read(client, newVersionFW, esp_http_client_get_content_length(client));
 
     ESP_LOGE(TAG,"Received html: %s", newVersionFW);
-    float value =  2.2f; 
-    value = atof(newVersionFW);
-    ESP_LOGE(TAG,"Received html: %f", value);
+    uint64_t value;
+    value = atoll(newVersionFW);
+    ESP_LOGE(TAG,"Received html: %llu", value);
 
     esp_http_client_close(client);
     esp_http_client_cleanup(client);
